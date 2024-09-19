@@ -7,5 +7,6 @@ export default defineConfig({
     baseUrl: "https://notes-serverless-app.com",
     defaultCommandTimeout: 10000,
     watchForFileChanges: false,
+    video: false,
   },
 });
