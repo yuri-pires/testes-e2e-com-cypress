@@ -1,0 +1,13 @@
+{
+  "name": "cypress_project",
+  "version": "1.0.0",
+  "scripts": {
+    "cy:open:chrome":  "cypress open --e2e --browser=chrome"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.0.1",
+    "cypress": "^13.14.2",
+    "cypress-mailosaur": "^2.15.0",
+    "typescript": "^5.6.2"
+  }
+}
