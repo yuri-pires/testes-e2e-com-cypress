@@ -4,5 +4,8 @@ declare namespace Cypress {
 
     guiLogin(email?: string, password?: string);
     sessionLogin(email?: string, password?: string);
+    createNote(note, attachFile?);
+    editNote(note, newNoteValue, attachFile);
+    deleteNote(note);
   }
 }
