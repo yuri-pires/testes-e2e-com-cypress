@@ -9,5 +9,8 @@ export default defineConfig({
     watchForFileChanges: false,
     video: false,
     chromeWebSecurity: false,
+    env: {
+      viewportWidthBreakpoint: 768,
+    },
   },
 });

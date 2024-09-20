@@ -30,4 +30,24 @@ describe("Cenários onde a pré-condição é estar autenticado", () => {
     cy.wait("@getNotes");
     cy.wait("@paymentRequest").its("state").should("be.equal", "Complete");
   });
+
+  it("Logout", () => {
+    cy.visit("/");
+
+    cy.wait("@getNotes");
+
+    // Estratégia para ser usada em conjunto com as configs passadas via CLI
+    // A depender do Width passado na CLI, nosso código irá executar esse if
+    // Com um valor pré definido (viewportWidthBreakpoint), que como o próprio
+    // nome sugere, é o ponto em que os menus colapsam e a responsividade é aplicada.
+    if (
+      Cypress.config("viewportWidth") < Cypress.env("viewportWidthBreakpoint")
+    ) {
+      cy.get(".navbar-toggle.collapsed").should("be.visible").click();
+    }
+
+    cy.contains("a", "Logout").should("be.visible").click();
+
+    cy.get("#email").should("be.visible");
+  });
 });
