@@ -21,3 +21,30 @@ Cypress.Commands.add(
     });
   }
 );
+
+Cypress.Commands.add(
+  "guiLogin",
+  (
+    email: string = Cypress.env("USER_EMAIL"),
+    password: string = Cypress.env("USER_PASSWORD")
+  ) => {
+    cy.intercept("GET", "**/notes").as("getNotes");
+
+    cy.visit("/login");
+    cy.get("#email").type(email);
+    cy.get("#password").type(password, { log: false });
+    cy.contains("button", "Login").should("be.visible").click();
+    cy.wait("@getNotes");
+  }
+);
+
+Cypress.Commands.add(
+  "sessionLogin",
+  (
+    email: string = Cypress.env("USER_EMAIL"),
+    password: string = Cypress.env("USER_PASSWORD")
+  ) => {
+    const login = () => cy.guiLogin(email, password);
+    cy.session(email, login);
+  }
+);

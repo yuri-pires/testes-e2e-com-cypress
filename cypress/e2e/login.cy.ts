@@ -1,6 +1,6 @@
 describe("Login", () => {
-  it("Realizar login com um usuário com validação de e-mail", () => {
-    cy.visit("/login");
-    cy.get("#email").type(`${Cypress.env("USER_EMAIL")}`);
+  it("Realizar login com sucesso", () => {
+    cy.guiLogin();
+    cy.contains("a", "Create a new note").should("be.visible");
   });
 });
