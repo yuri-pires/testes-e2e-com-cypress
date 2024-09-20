@@ -7,5 +7,6 @@ declare namespace Cypress {
     createNote(note, attachFile?);
     editNote(note, newNoteValue, attachFile);
     deleteNote(note);
+    fillSettingsFormAndSubmit();
   }
 }

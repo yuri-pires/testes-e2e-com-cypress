@@ -8,5 +8,6 @@ export default defineConfig({
     defaultCommandTimeout: 10000,
     watchForFileChanges: false,
     video: false,
+    chromeWebSecurity: false,
   },
 });
