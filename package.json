@@ -7,9 +7,10 @@
     "test": "cypress run",
     "test:tablet": "cypress run --config viewportWidth=767,viewportHeight=480 --spec cypress/e2e/authenticated.cy.js",
     "test:cloud": "cypress run --record --tag 'desktop'",
-    "test:tablet:cloud": "cypress run --record --tag 'tablet' --config viewportWidth=767,viewportHeight=480 --spec cypress/e2e/authenticated.cy.ts"
+    "test:tablet:cloud": "cypress run --record --tag 'tablet' --config viewportWidth=767,viewportHeight=480 --spec cypress/e2e/authenticated.cy.js --env grepTags=@desktop-and-tablet,grepOmitFiltered=true"
   },
   "devDependencies": {
+    "@cypress/grep": "^4.1.0",
     "@faker-js/faker": "^9.0.1",
     "cypress": "^13.14.2",
     "cypress-iframe": "^1.0.1",

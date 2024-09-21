@@ -31,7 +31,7 @@ describe("Cenários onde a pré-condição é estar autenticado", () => {
     cy.wait("@paymentRequest").its("state").should("be.equal", "Complete");
   });
 
-  it("Logout", () => {
+  it("Logout", { tags: "@desktop-and-tablet" }, () => {
     cy.visit("/");
 
     cy.wait("@getNotes");
